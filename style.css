@@ -460,23 +460,81 @@ body {
   }
 }
 
-@keyframes hero-banner-drift {
-  from {
-    transform: scale(1.015) translateX(-0.25%);
-  }
-  to {
-    transform: scale(1.04) translateX(0.25%);
-  }
-}
-
 /* Hero Background Image */
 .hero-banner-image {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
-  transform-origin: center;
-  animation: hero-banner-drift 24s ease-in-out 900ms infinite alternate;
+}
+
+.hero-card-card {
+  position: absolute;
+  z-index: 2;
+  top: 55.73%;
+  left: 27.05%;
+  width: 46.25%;
+  height: 44.27%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6px, 1.5vw, 24px);
+  background: #1a4c43;
+  color: #ffffff;
+  line-height: normal;
+  text-align: center;
+}
+
+.hero-headline {
+  margin: 0 0 clamp(4px, 0.6vw, 8px);
+  color: #ffffff;
+  font-size: clamp(18px, 3.6vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.hero-subheadline {
+  margin: 0 0 clamp(6px, 1.2vw, 18px);
+  color: #f5f5f7;
+  font-size: clamp(11px, 1.6vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.hero-cta-wrapper {
+  line-height: 1;
+}
+
+.btn-shop-gifts {
+  display: inline-block;
+  padding: clamp(6px, 0.8vw, 12px) clamp(14px, 1.8vw, 26px);
+  border-radius: 980px;
+  background: var(--apple-blue);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: clamp(11px, 1.1vw, 16px);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-shop-gifts:hover {
+  background: var(--apple-blue-hover);
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-shop-gifts:active {
+  background: var(--apple-blue-active);
+  transform: scale(0.98);
+}
+
+.btn-shop-gifts:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 .visually-hidden {
@@ -489,22 +547,6 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-.hero-shop-hotspot {
-  position: absolute;
-  z-index: 3;
-  left: 46.5%;
-  top: 85%;
-  width: 8.5%;
-  height: 7%;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.hero-shop-hotspot:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
 }
 
 /* ==========================================================================
@@ -670,6 +712,26 @@ body {
 }
 
 @media (max-width: 520px) {
+  .hero-card-card {
+    padding: 2px 6px;
+  }
+
+  .hero-headline {
+    margin-bottom: 1px;
+    font-size: clamp(15px, 4vw, 16px);
+  }
+
+  .hero-subheadline {
+    margin-bottom: 2px;
+    font-size: clamp(10px, 2.7vw, 11px);
+    line-height: 1.1;
+  }
+
+  .btn-shop-gifts {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
   .globalnav-content {
     padding: 0 12px;
   }
@@ -721,6 +783,7 @@ body {
 
 .iphone-duo-section {
   margin-top: 0;
+  padding-top: 0;
 }
 
 .product-showcase-container {
@@ -824,6 +887,52 @@ body {
   justify-content: center;
   align-items: flex-end;
   margin-top: 10px;
+}
+
+.product-artwork-wrap {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.product-artwork-img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  filter: none;
+  transform: none;
+}
+
+.product-device-wrap:hover .product-artwork-img {
+  transform: none;
+}
+
+.product-artwork-hotspot {
+  position: absolute;
+  top: 29%;
+  height: 7%;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.artwork-learn-hotspot {
+  left: 42.6%;
+  width: 9%;
+}
+
+.artwork-buy-hotspot {
+  left: 52.3%;
+  width: 5.2%;
+}
+
+.product-artwork-hotspot:focus-visible {
+  outline: 2px solid #2997ff;
+  outline-offset: 2px;
 }
 
 .product-device-img {
@@ -1080,7 +1189,7 @@ body {
 .iphone-18-pro-section {
   background-color: #000000;
   margin-top: 12px;
-  padding-top: 55px;
+  padding-top: 0;
   overflow: hidden;
   position: relative;
 }
@@ -1118,7 +1227,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 8px;
+  margin-top: 0;
   position: relative;
 }
 
@@ -1134,6 +1243,17 @@ body {
 .pro-device-wrap:hover .pro-device-img {
   filter: drop-shadow(0 0 45px rgba(210, 170, 240, 0.2));
   transform: translateY(-4px) scale(1.01);
+}
+
+.product-artwork-wrap .product-device-img.product-artwork-img {
+  width: 100%;
+  max-width: none;
+  filter: none;
+}
+
+.product-artwork-wrap:hover .product-device-img.product-artwork-img {
+  filter: none;
+  transform: none;
 }
 
 /* iPhone 18 Pro Modals */
@@ -2157,7 +2277,24 @@ body {
   }
 
   .hero-stage,
-  .hero-banner-image {
+  .hero-banner-wrap {
     animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .product-artwork-hotspot {
+    top: 18%;
+    height: 32px;
+  }
+
+  .artwork-learn-hotspot {
+    left: 43.8%;
+    width: 28px;
+  }
+
+  .artwork-buy-hotspot {
+    left: 52.3%;
+    width: 26px;
   }
 }
